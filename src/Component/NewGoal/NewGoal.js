@@ -2,7 +2,7 @@ import React from 'react';
 
 import './NewGoal.css';
 
-const NewGaol = () => {
+const NewGaol = props => {
     const addGoalHandler = event => {
         event.preventDefault();
 
@@ -10,7 +10,9 @@ const NewGaol = () => {
             id : Math.random().toString(),
             text: 'its new goal'
         };
-        console.log(newGoal);
+
+        props.onAddGoal(newGoal);
+
     };
 
     return (
