@@ -1,20 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+import React, {useState} from 'react';
 import GoalList from './Component/GoalList/GoalList'
 import NewGaol from "./Component/NewGoal/NewGoal";
+import userEvent from "@testing-library/user-event";
+
 const App = () => {
 
-    const courseGoal = [
+    const [courseGoal, setCourseGoal] = useState([
         {id: 'cg1', text: 'watch'},
         {id: 'cg2', text: 'apply'},
         {id: 'cg3', text: 'push'},
-        {id: 'cg4', text: 'new var.'}
-        ];
+        {id: 'cg4', text: 'ger'}
+    ])
+
+    // const courseGoal = [
+    //     {id: 'cg1', text: 'watch'},
+    //     {id: 'cg2', text: 'apply'},
+    //     {id: 'cg3', text: 'push'},
+    //     {id: 'cg4', text: 'new var.'}
+    //     ];
 
     const addNewGoalHandler = newGoal =>{
-        courseGoal.push(newGoal);
-        console.log(courseGoal);
+
+        setCourseGoal(courseGoal.concat(newGoal))
+
+        // courseGoal.push(newGoal);
+        // console.log(courseGoal);
     };
 
     return(
